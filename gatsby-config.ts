@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `About Shu`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://yoshioka-s.github.io`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -28,7 +28,13 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }]
+  }, {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: "content",
+      path: `${__dirname}/src/content`
+    },
+  }, "gatsby-transformer-remark"]
 };
 
 export default config;
