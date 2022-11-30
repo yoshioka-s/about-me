@@ -20,7 +20,7 @@ const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
   return (
     <div>
       <h1>{frontmatter.title}</h1>
-      <h2>{frontmatter.from} ~ {frontmatter.to}</h2>
+      <h2>{frontmatter.from} ~ {frontmatter.to || '現在'}</h2>
       <div
         dangerouslySetInnerHTML={{ __html: html }}
       />
