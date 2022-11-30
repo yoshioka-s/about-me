@@ -12,9 +12,7 @@ type DataProps = {
     }
   }
 }
-const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
-  data,
-}) =>  {
+const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data }) =>  {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   return (
