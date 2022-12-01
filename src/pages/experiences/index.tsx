@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
+import { Layout } from '../../components/layout.tsx'
 
 type DataProps = {
   allMarkdownRemark: {
@@ -20,7 +21,7 @@ const Experiences: React.FC<PageProps<DataProps>> = ({ data }) =>  {
     return node.frontmatter.from < previous.frontmatter.from ? -1 : 1
   })
   return (
-    <div>
+    <Layout>
       <h1>経験と学び</h1>
       {pages.map((node) => (
         <div key={node.frontmatter.slug}>
@@ -29,7 +30,7 @@ const Experiences: React.FC<PageProps<DataProps>> = ({ data }) =>  {
           </Link>
         </div>
       ))}
-    </div>
+    </Layout>
   )
 }
 

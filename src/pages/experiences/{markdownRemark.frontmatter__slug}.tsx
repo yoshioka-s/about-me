@@ -1,5 +1,7 @@
 import * as React from "react"
-import { graphql, PageProps } from "gatsby"
+import { graphql, PageProps, Link } from "gatsby"
+import { Layout } from '../../components/layout.tsx'
+import styled from '@emotion/styled'
 
 type DataProps = {
   markdownRemark: {
@@ -12,17 +14,27 @@ type DataProps = {
     }
   }
 }
+
+const Period = styled.div`
+margin: 20px 0;
+`
+const Footer = styled.div`
+margin: 20px 0;
+`
+
 const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({ data }) =>  {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   return (
-    <div>
-      <h1>{frontmatter.title}</h1>
-      <h2>{frontmatter.from} ~ {frontmatter.to || '現在'}</h2>
+    <Layout>
+      <Period>{frontmatter.from} ~ {frontmatter.to || '現在'}</Period>
       <div
         dangerouslySetInnerHTML={{ __html: html }}
       />
-    </div>
+      <Footer>
+        <Link to="/experiences">← 職務経歴に戻る</Link>
+      </Footer>
+    </Layout>
   )
 }
 

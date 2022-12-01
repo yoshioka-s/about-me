@@ -1,31 +1,41 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import { Link } from "gatsby"
-
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import { Layout } from '../components/layout.tsx'
 
 const IndexPage: React.FC<PageProps> = () => {
+  const personalities = ['内向的', '繊細', '温厚']
+  const values = ['多様性', '創意工夫', '寛容']
+  const hobbies = ['サッカー', '音楽', 'パソコン']
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
+    <Layout>
+      <h1>
         yoshioka-s
       </h1>
-      <p>
-        <Link to="experiences">職務経験: Human side</Link>
-      </p>
-      <p>
-        職務経験: Tech side (Coming soon)
-      </p>
-    </main>
+      <section>
+        <p>
+          <Link to="experiences">職務経験: Human side</Link>
+        </p>
+        <p>
+          職務経験: Tech side (Coming soon)
+        </p>
+      </section>
+      <section>
+        <h2>キーワード</h2>
+        <h3>性格</h3>
+        <ul>
+          {personalities.map((word) => (<li>{word}</li>))}
+        </ul>
+        <h3>価値観</h3>
+        <ul>
+          {values.map((word) => (<li>{word}</li>))}
+        </ul>
+        <h3>趣味</h3>
+        <ul>
+          {hobbies.map((word) => (<li>{word}</li>))}
+        </ul>
+      </section>
+    </Layout>
   )
 }
 
